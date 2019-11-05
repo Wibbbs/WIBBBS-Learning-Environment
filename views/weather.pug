@@ -1,0 +1,12 @@
+extends hero.pug
+block content
+    section(class='section')
+        div(class='container')
+            table(class='table')
+                thead
+                    tr
+                        th City
+                        th Temperature
+                    tr
+                        td #{weather.name}
+                        td #{weather.main.temp}
