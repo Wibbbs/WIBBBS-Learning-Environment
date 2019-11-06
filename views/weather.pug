@@ -2,11 +2,21 @@ extends hero.pug
 block content
     section(class='section')
         div(class='container')
-            table(class='table')
+            table(class='table is-bordered')
                 thead
                     tr
                         th City
+                        th Conditions
                         th Temperature
+                        th Humidity
+                        th Minimum Temperature
+                        th Maximum Temperature
+                        th Wind Speed
                     tr
                         td #{weather.name}
-                        td #{weather.main.temp}
+                        td #{weather.weather[0].main}
+                        td #{weather.main.temp}C
+                        td #{weather.main.humidity}%
+                        td #{weather.main.temp_min}C
+                        td #{weather.main.temp_max}C
+                        td #{weather.wind.speed}km/H
