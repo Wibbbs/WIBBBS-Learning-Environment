@@ -13,10 +13,17 @@ block content
                         th Maximum Temperature
                         th Wind Speed
                     tr
-                        td #{weather.name}
-                        td #{weather.weather[0].main}
-                        td #{weather.main.temp}C
-                        td #{weather.main.humidity}%
-                        td #{weather.main.temp_min}C
-                        td #{weather.main.temp_max}C
-                        td #{weather.wind.speed}km/H
+                        td 
+                            p(class='has-text-centered') #{weather.name}
+                        td 
+                            p(class='has-text-centered') #{weather.weather[0].main}
+                        td 
+                            p(class='has-text-centered') #{weather.main.temp} °C
+                        td 
+                            p(class='has-text-centered') #{weather.main.humidity}%
+                        td 
+                            p(class='has-text-centered') #{weather.main.temp_min} °C
+                        td 
+                            p(class='has-text-centered') #{weather.main.temp_max} °C
+                        td 
+                            p(class='has-text-centered') #{weather.wind.speed}km/H
