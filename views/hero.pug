@@ -1,6 +1,7 @@
 html
     head
         link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css')
+        script(src='https://code.jquery.com/jquery-1.12.4.js' integrity='sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=', crossorigin='anonymous')
     body
         section(class='hero is-info')
             div(class='hero-head')
@@ -13,11 +14,12 @@ html
                 div(class='container')
                     h1 WIBBBS Learning Environment
             div(class='hero-foot')
-                nav(class='tabs')
+                nav(class='tabs is-boxed is-fullwidth')
                     div(class='container')
                         ul
-                            li
+                            li(id='hometab')
                                 a(href='/') Home
-                            li
+                            li(id='weathertab')
                                 a(href='/weather') Weather
+    script(src='javascript/tabs.js')
 block content
