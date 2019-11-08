@@ -1,12 +1,11 @@
 $(document).ready(function() {
-  if (window.location.href.indexOf("weather") > -1) {
+  if (window.location.href.indexOf("/weather") > -1) {
     switchToWeather()
   }
   else{
     switchToHome()
   }
 });
-
 
 function switchToHome() {
   removeActive();

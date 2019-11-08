@@ -12,18 +12,19 @@ block content
                         th Minimum Temperature
                         th Maximum Temperature
                         th Wind Speed
-                    tr
-                        td 
-                            p(class='has-text-centered') #{weather.name}
-                        td 
-                            p(class='has-text-centered') #{weather.weather[0].main}
-                        td 
-                            p(class='has-text-centered') #{weather.main.temp} °C
-                        td 
-                            p(class='has-text-centered') #{weather.main.humidity}%
-                        td 
-                            p(class='has-text-centered') #{weather.main.temp_min} °C
-                        td 
-                            p(class='has-text-centered') #{weather.main.temp_max} °C
-                        td 
-                            p(class='has-text-centered') #{weather.wind.speed}km/H
+                    for city in cities
+                        tr
+                            td 
+                                p(class='has-text-centered') #{city.name}
+                            td 
+                                p(class='has-text-centered') #{city.weather[0].main}
+                            td 
+                                p(class='has-text-centered') #{city.main.temp} °C
+                            td 
+                                p(class='has-text-centered') #{city.main.humidity}%
+                            td 
+                                p(class='has-text-centered') #{city.main.temp_min} °C
+                            td 
+                                p(class='has-text-centered') #{city.main.temp_max} °C
+                            td 
+                                p(class='has-text-centered') #{city.wind.speed}km/H

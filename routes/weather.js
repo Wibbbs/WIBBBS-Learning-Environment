@@ -3,7 +3,8 @@ const request = require('request');
 module.exports = function (app) {
 
     app.get('/weather', function (req, res) {
-        var json;
+        var cities = [];
+        var city;
 
         request.get({
             url: 'http://api.openweathermap.org/data/2.5/weather',
@@ -14,15 +15,34 @@ module.exports = function (app) {
             }
         },
             function (err, response, body) {
-                if(err){
+                if (err) {
                     console.log(err);
                     console.log(response);
                     res.render('error');
                 }
-                json = JSON.parse(body); 
-                console.log(json)
-                res.render('weather', {weather: json});
-            }
-        );
-    })
+                city = JSON.parse(body);
+                cities.push(city);
+                console.log(city);
+                request.get({
+                    url: 'http://api.openweathermap.org/data/2.5/weather',
+                    qs: {
+                        q: 'Orlando',
+                        appId: '1acd1744b5a0e9870d127f2c34ac095e',
+                        units: 'metric'
+                    }
+                },
+                    function (err, response, body) {
+                        if (err) {
+                            console.log(err);
+                            console.log(response);
+                            res.render('error');
+                        }
+                        city = JSON.parse(body);
+                        cities.push(city);
+                        console.log(city);
+                        res.render('weather', { cities: cities });
+                    }
+                );
+            })
+    });
 };
