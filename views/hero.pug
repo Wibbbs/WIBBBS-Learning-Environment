@@ -10,6 +10,13 @@ html
                         div(class='navbar-brand')
                             a(class='navbar-item' href='/')
                                 img(src='/images/Wibbbs-logos_white_cropped.png' alt='Logo')
+                        div(class='navbar-end')
+                            div(class='navbar-item')
+                                a(href='/auth/login') Login
+                            div(class='navbar-item')
+                                a(href='/auth/logout') Logout
+                                
+                                        
             div(class='hero-body')
                 div(class='container')
                     h1 WIBBBS Learning Environment
@@ -21,5 +28,9 @@ html
                                 a(href='/') Home
                             li(id='weathertab')
                                 a(href='/weather') Weather
+                            li(id='githubtab')
+                                a(href='/github') Github API
+                            li(id='twitchtab')
+                                a(href='/twitch') Twitch API
     script(src='javascript/tabs.js')
 block content
