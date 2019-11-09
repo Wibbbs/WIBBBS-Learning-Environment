@@ -14,7 +14,7 @@ router.get('/google', passport.authenticate('google', {
 }
 ));
 
-router.get('/google/callback', (req,res) =>{
+router.get('/google/callback', passport.authenticate('google'), (req,res) =>{
     res.send('You are authed');
 })
 
