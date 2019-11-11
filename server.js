@@ -14,12 +14,18 @@ app.use(express.static(__dirname + '/public'));
 app.use('/auth', authRoutes);
 
 //connect to mongo database
-mongoose.connect(keys.mongoDB.URI, () =>{
-    console.log('connected to monogdb');
+mongoose.connect(keys.mongoDB.URI, { useNewUrlParser: true }, (err) => {
+    if (err) {
+        console.log(err  + '\n');
+    }
+    else{
+        console.log('success connect to mongoDB @ '+ keys.mongoDB.URI  + '\n');
+    }
 });
 
+
 app.listen('3000');
-console.log('listening on 3000')
+console.log('listening on 3000'  + '\n')
 
 home(app);
 weather(app);
