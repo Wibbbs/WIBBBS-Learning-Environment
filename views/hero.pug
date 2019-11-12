@@ -12,12 +12,13 @@ html
                             a(class='navbar-item' href='/')
                                 img(src='/images/Wibbbs-logos_white_cropped.png' alt='Logo')
                         div(class='navbar-end')
-                            div(class='navbar-item')
-                                a(href='/auth/login') Login
-                            div(class='navbar-item')
-                                a(href='/auth/logout') Logout
-                                
-                                        
+                            if !user
+                                div(class='navbar-item')
+                                    a(href='/auth/login') Login
+                            else
+                                div(class='navbar-item')
+                                    p #{user.username}
+                                    a(href='/auth/logout') Logout                 
             div(class='hero-body')
                 div(class='container')
                     h1 WIBBBS Learning Environment
@@ -25,15 +26,16 @@ html
                 nav(class='tabs is-boxed is-fullwidth')
                     div(class='container')
                         ul
-                            li(id='hometab')
-                                a(href='/') Home
-                            li(id='profiletab')
-                                a(href='/profile') Profile
-                            li(id='weathertab')
-                                a(href='/weather') Weather
-                            li(id='githubtab')
-                                a(href='/github') Github API
-                            li(id='twitchtab')
-                                a(href='/twitch') Twitch API
+                            if user
+                                li(id='hometab')
+                                    a(href='/') Home
+                                li(id='profiletab')
+                                    a(href='/profile') Profile
+                                li(id='weathertab')
+                                    a(href='/weather') Weather
+                                li(id='githubtab')
+                                    a(href='/github') Github API
+                                li(id='twitchtab')
+                                    a(href='/twitch') Twitch API
     script(src='javascript/tabs.js')
 block content

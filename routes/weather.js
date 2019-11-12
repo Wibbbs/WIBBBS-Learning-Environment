@@ -1,8 +1,17 @@
 const request = require('request');
 
+const authCheck = (req,res,next) => {
+    if (req.user){
+        next()
+    } else {
+        res.redirect('/auth/login');
+    }
+
+}
+
 module.exports = function (app) {
 
-    app.get('/weather', function (req, res) {
+    app.get('/weather', authCheck, function (req, res) {
         var cities = [];
         var city;
 
@@ -40,7 +49,7 @@ module.exports = function (app) {
                         city = JSON.parse(body);
                         cities.push(city);
                         console.log(city);
-                        res.render('weather', { cities: cities });
+                        res.render('weather', { cities:cities, user:req.user });
                     }
                 );
             })
