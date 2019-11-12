@@ -1,3 +1,9 @@
 extends hero.pug
+block variables
 block content
-    h1 Welcome #{user.username}, you are authenticated.
+    div(class='section')
+        div(class='container is-centered')
+            p(class='is-size-2') Welcome #{user.username}, you are authenticated.
+            p The email address we have on file is #{user.email}
+            p Here is your picture
+            img(src= `${user.photo}`)

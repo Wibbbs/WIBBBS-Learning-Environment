@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 
 app = express();
 app.set('view engine', 'pug');
@@ -25,11 +26,6 @@ app.use(passport.session());
 
 
 
-app.use('/auth', authRoutes);
-app.use('/profile', profileRoutes);
-
-
-
 //connect to mongo database
 mongoose.connect(keys.mongoDB.URI, { useNewUrlParser: true }, (err) => {
     if (err) {
@@ -39,6 +35,9 @@ mongoose.connect(keys.mongoDB.URI, { useNewUrlParser: true }, (err) => {
         console.log('success connect to mongoDB @ '+ keys.mongoDB.URI  + '\n');
     }
 });
+
+app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
 
 
 app.listen('3000');

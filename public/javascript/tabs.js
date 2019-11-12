@@ -1,6 +1,8 @@
 $(document).ready(function() {
   if (window.location.href.indexOf("/weather") > -1) {
     switchToWeather()
+  } else if (window.location.href.indexOf("/profile") > -1)  {
+    switchToProfile()
   }
   else{
     switchToHome()
@@ -15,6 +17,11 @@ function switchToHome() {
 function switchToWeather() {
   removeActive();
   $("#weathertab").addClass("is-active");
+}
+
+function switchToProfile() {
+  removeActive();
+  $("#profiletab").addClass("is-active");
 }
 
 function removeActive() {
