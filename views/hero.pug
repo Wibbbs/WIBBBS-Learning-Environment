@@ -15,7 +15,8 @@ html
                         div(class='navbar-end')
                             if !user
                                 div(class='navbar-item')
-                                    a(href='/auth/login') Login
+                                    a(href='/auth/google')
+                                        img(src='/images/googlesignin_dark.png')
                             else
                                 div(class='navbar-item')
                                     p #{user.username}
