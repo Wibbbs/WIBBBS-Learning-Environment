@@ -1,17 +1,9 @@
 const request = require('request');
-
-const authCheck = (req,res,next) => {
-    if (req.user){
-        next()
-    } else {
-        res.redirect('/auth/login');
-    }
-
-}
+const authRoutes = require('./auth-routes');
 
 module.exports = function (app) {
 
-    app.get('/weather', authCheck, function (req, res) {
+    app.get('/weather', authRoutes.authCheck, function (req, res) {
         var cities = [];
         var city;
 

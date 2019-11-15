@@ -1,0 +1,12 @@
+extends hero.pug
+block content
+    if entry
+        div(class=section)
+            div(class=container)
+                h1 Thank you for entering, Please click below to withdraw your entry. 
+                a(href='/lottery/withdraw') Withdraw               
+    else
+        div(class=section)
+            div(class=container)
+                h1 You are not entered. Please click the button below to enter in the lottery.
+                a(href='/lottery/enter') Enter

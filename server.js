@@ -3,8 +3,9 @@ var home = require('./routes/home');
 var weather = require('./routes/weather');
 const request = require('request');
 const authRoutes = require('./routes/auth-routes');
-const profileRoutes = require('./routes/profile')
-const passportSetup = require('./config/passport-setup')
+const profileRoutes = require('./routes/profile');
+const lotteryRoutes = require('./routes/lottery');
+const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
@@ -36,9 +37,9 @@ mongoose.connect(keys.mongoDB.URI, { useNewUrlParser: true }, (err) => {
     }
 });
 
-app.use('/auth', authRoutes);
+app.use('/auth', authRoutes.router);
 app.use('/profile', profileRoutes);
-
+app.use('/lottery', lotteryRoutes);
 
 app.listen('3000');
 console.log('listening on 3000'  + '\n')
