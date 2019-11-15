@@ -2,6 +2,7 @@ block variables
 html
     head
         link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css')
+        link(rel='stylesheet' href='/css/mystyles.css')
         script(src='https://code.jquery.com/jquery-1.12.4.js' integrity='sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=', crossorigin='anonymous')
     body
         section(class='hero is-success')
@@ -20,11 +21,11 @@ html
                                     p #{user.username}
                                     a(href='/auth/logout') Logout                 
             div(class='hero-body')
-                div(class='container')
+                div(class='container has-text-black')
                     h1 WIBBBS Learning Environment
             div(class='hero-foot')
                 nav(class='tabs is-boxed is-fullwidth')
-                    div(class='container')
+                    div(class='container has-text-black')
                         ul
                             if user
                                 li(id='hometab')
