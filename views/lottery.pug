@@ -1,12 +1,24 @@
 extends hero.pug
 block content
     if entry
-        div(class=section)
-            div(class=container)
-                h1 Thank you for entering, Please click below to withdraw your entry. 
-                a(href='/lottery/withdraw') Withdraw               
+        div(class='section')
+            div(class='container')
+                div(class='columns is-centered')
+                    div(class='column is-7')
+                        div(class='box has-text-centered')
+                            p(class='title') You are entered in the lottery! 
+                            br
+                            p(class='subtitle') If you would like to withdraw #{user.email} from the lottery click the button below. 
+                            br
+                            a(class='button' href='/lottery/withdraw') Withdraw                
     else
-        div(class=section)
-            div(class=container)
-                h1 You are not entered. Please click the button below to enter in the lottery.
-                a(href='/lottery/enter') Enter
+        div(class='section')
+            div(class='container')
+                div(class='columns is-centered')
+                    div(class='column is-7')
+                        div(class='box has-text-centered')
+                            p(class='title') You are not entered!
+                            br 
+                            p(class='subtitle') Please click below to enter #{user.email} in the lottery. 
+                            br
+                            a(class='button' href='/lottery/enter') Enter  
