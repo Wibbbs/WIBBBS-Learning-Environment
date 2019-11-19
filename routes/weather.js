@@ -23,7 +23,7 @@ module.exports = function (app) {
                 }
                 city = JSON.parse(body);
                 cities.push(city);
-                console.log(city);
+                //console.log(city);
                 request.get({
                     url: 'http://api.openweathermap.org/data/2.5/weather',
                     qs: {
@@ -40,7 +40,7 @@ module.exports = function (app) {
                         }
                         city = JSON.parse(body);
                         cities.push(city);
-                        console.log(city);
+                        //console.log(city);
                         res.render('weather', { cities:cities, user:req.user });
                     }
                 );

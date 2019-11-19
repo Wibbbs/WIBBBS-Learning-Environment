@@ -11,6 +11,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000;
 
 app = express();
 app.set('view engine', 'pug');
@@ -41,8 +42,8 @@ app.use('/auth', authRoutes.router);
 app.use('/profile', profileRoutes);
 app.use('/lottery', lotteryRoutes);
 
-app.listen('3000');
-console.log('listening on 3000'  + '\n')
+app.listen(port);
+console.log('listening on ' + port  + '\n')
 
 home(app);
 weather(app);
