@@ -1,0 +1,20 @@
+version: "2.1"
+
+services:
+  app:
+    container_name: Wibbbs_App
+    image: wiebe/wibbbs-learning-environment
+    ports:
+      - 51000:3000
+    links:
+      - database
+  database:
+    container_name: MongoDB-Wibbs_APP
+    image: mongo
+    volumes:
+      - Wibbbs_App_Data:/data/db
+    ports:
+      - 27017:27017
+
+volumes: 
+  Wibbbs_App_Data:
